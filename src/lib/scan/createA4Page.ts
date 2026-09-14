@@ -1,0 +1,2 @@
+export const A4_POINTS={portrait:[595.28,841.89] as const,landscape:[841.89,595.28] as const}
+export function getA4Placement(imageWidth:number,imageHeight:number,marginPoints=3){const landscape=imageWidth>imageHeight,[pageWidth,pageHeight]=landscape?A4_POINTS.landscape:A4_POINTS.portrait,scale=Math.min((pageWidth-marginPoints*2)/imageWidth,(pageHeight-marginPoints*2)/imageHeight),width=imageWidth*scale,height=imageHeight*scale;return{pageWidth,pageHeight,x:(pageWidth-width)/2,y:(pageHeight-height)/2,width,height}}
